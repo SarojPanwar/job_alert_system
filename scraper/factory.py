@@ -9,7 +9,7 @@ class ScraperFactory:
     @staticmethod
     def get_scraper(company):
 
-        if company.platform == "Greenhouse":
+        if company.platform == "greenhouse":
             return GreenhouseScraper()
 
         elif company.platform == "Lever":

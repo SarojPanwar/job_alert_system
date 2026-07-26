@@ -44,6 +44,7 @@ class Company(models.Model):
         default = "custom",
         verbose_name = "Career Platform"
     )
+
     
     is_active = models.BooleanField(default=True)
 
