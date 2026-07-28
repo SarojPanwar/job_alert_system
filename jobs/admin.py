@@ -7,7 +7,10 @@ class JobAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "company",
+        "department",
+        "office",
         "location",
+        "posted_date",
         "apply_link",
         "experience",
         "employment_type",
@@ -24,6 +27,9 @@ class JobAdmin(admin.ModelAdmin):
     list_filter = (
         "company",
         "location",
+        "title",
+        "department",
+        "office",
         "employment_type",
         "work_mode",
         "is_active",
@@ -32,15 +38,18 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = (
         "title",
         "company__name",
+        "location",
+        "department",
+        "office",
     )
     ordering = (
-        "-scraped_at",
+        "-posted_date",
     )
     readonly_fields = (
         "job_hash",
         "scraped_at",
     )
     list_per_page = 25
-    date_hierarchy = "scraped_at"
+    date_hierarchy = "posted_date"
 
 

@@ -12,10 +12,10 @@ class ScraperFactory:
         if company.platform == "greenhouse":
             return GreenhouseScraper()
 
-        elif company.platform == "Lever":
+        elif company.platform == "lever":
             return LeverScraper()
 
-        elif company.platform == "Workday":
+        elif company.platform == "workday":
             return WorkdayScraper()
 
         return CustomScraper()

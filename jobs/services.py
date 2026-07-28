@@ -15,8 +15,12 @@ class JobService:
         
                 defaults = {
                     "company": company,
-                    "title": job["title"],
-                    "location": job["location"],
-                    "apply_url": job["apply_url"],
+                    "title": job.get("title",""),
+                    "location": job.get("location",""),
+                    "apply_url": job.get("apply_url",""),
+                    "description": job.get("description",""),
+                    "posted_date": job.get("posted_date",""),
+                    "department": job.get("department",""),
+                    "office": job.get("office","")
                 },
             )
