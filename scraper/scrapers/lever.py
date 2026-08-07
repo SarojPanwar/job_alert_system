@@ -1,6 +1,7 @@
 from scraper.base import BaseScraper
-import requests
 from datetime import datetime,timezone
+
+
 class LeverScraper(BaseScraper):
 
     def scrape(self, company):
@@ -9,8 +10,7 @@ class LeverScraper(BaseScraper):
 
         api_url = f"https://api.lever.co/v0/postings/{account}?mode=json"
         
-        response = requests.get(api_url)
-        data = response.json()
+        data = self.get_json(api_url)
         
        
         jobs = [] 
@@ -30,6 +30,5 @@ class LeverScraper(BaseScraper):
                 "posted_date": posted_date,
 
             })
-            
-
+        
         return jobs

@@ -1,7 +1,7 @@
 from scraper.scrapers.greenhouse import GreenhouseScraper
 from scraper.scrapers.lever import LeverScraper
 from scraper.scrapers.workday import WorkdayScraper
-from scraper.scrapers.custom import CustomScraper
+from scraper.scrapers.smart_recruiters import SmartRecruitersScraper
 
 
 class ScraperFactory:
@@ -18,4 +18,7 @@ class ScraperFactory:
         elif company.platform == "workday":
             return WorkdayScraper()
 
-        return CustomScraper()
+        elif company.platform == "smartrecruiters":
+            return SmartRecruitersScraper()
+
+    

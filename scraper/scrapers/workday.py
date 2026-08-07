@@ -1,5 +1,4 @@
 from scraper.base import BaseScraper
-import requests
 from urllib.parse import urljoin,urlparse
 class WorkdayScraper(BaseScraper):
 
@@ -14,7 +13,7 @@ class WorkdayScraper(BaseScraper):
             f"{company_slug}/"
             f"{site_name}/jobs"
         )
-               
+        
         headers = {
             "Content-Type": "application/json"
         }
@@ -24,14 +23,12 @@ class WorkdayScraper(BaseScraper):
             "offset": 0,
             "searchText": "",
         }
-        response = requests.post(
+        
+        data = self.post_json(
             api_url,
             headers = headers,
             json = payload
-            )
-        response.raise_for_status()
-        
-        data = response.json()
+        )
         jobs_data = data["jobPostings"]
         
         jobs = []
@@ -48,7 +45,5 @@ class WorkdayScraper(BaseScraper):
                 "description": "",
                 "posted_date": None,
             })
-          
-        
        
         return jobs

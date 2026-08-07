@@ -7,7 +7,6 @@ class Company(models.Model):
         ("lever","Lever"),
         ("workday","Workday"),
         ("ashby","Ashby"),
-        ("custom","Custom"),
         ("smartrecruiters","SmartRecruiters"),
         ("taleo","Taleo"),
 
