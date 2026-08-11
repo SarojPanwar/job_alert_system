@@ -1,0 +1,24 @@
+2026-08-11 09:53:12,368 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 09:53:12,369 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 09:53:15,697 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 09:53:15,698 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 09:53:22,101 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 09:53:22,101 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 09:53:29,522 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 09:53:29,522 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 09:53:40,584 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 09:53:40,585 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 09:57:11,407 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 09:57:11,408 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 09:57:19,458 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 09:57:19,458 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 09:57:25,225 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 09:57:25,226 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 09:57:25,226 [ERROR] scraper.orchestrator: Failed to scrape NVIDIA
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 22, in run
+    raise Exception("Testing scraper failure")
+Exception: Testing scraper failure
+2026-08-11 09:57:25,227 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 09:57:31,234 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 09:57:31,235 [INFO] scraper.orchestrator: Job scraping completed
