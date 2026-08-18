@@ -21,7 +21,22 @@ class ScraperOrchestrator:
                 
                 scraper = ScraperFactory.get_scraper(company)
                 jobs = scraper.scrape(company)
-                JobService.save_jobs(company,jobs)
+
+                scraped_hashes = JobService.save_jobs(
+                    company,
+                    jobs
+                )
+
+                deactivated_count =JobService.deactivate_missing_jobs(
+                    company,
+                    scraped_hashes
+                )
+                logger.info(
+                    "Deactivated %d missing jobs for %s",
+                    deactivated_count,
+                    company.name
+                )
+
                 logger.info(
                     "Successfully scraped %d jobs from %s",
                     len(jobs),

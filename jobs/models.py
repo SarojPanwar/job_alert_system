@@ -10,26 +10,34 @@ class Job(models.Model):
     work_mode = models.CharField(max_length=20,blank=True, default="")
     apply_url = models.URLField()
     department = models.CharField(
-    max_length=255,
-    blank=True,
-    default=""
+        max_length=255,
+        blank=True,
+        default=""
     )
     office = models.CharField(
-    max_length=255,
-    blank=True,
-    default=""
+        max_length=255,
+        blank=True,
+        default=""
     )   
-    job_hash = models.CharField(max_length=64, unique=True,blank=True ,default="")
+    job_hash = models.CharField(
+        max_length=64, 
+        unique=True
+        )
     posted_date = models.DateTimeField(null=True, blank=True)
     description = models.TextField(blank=True)
     skills = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
-    scraped_at = models.DateTimeField(auto_now_add=True)    
+    scraped_at = models.DateTimeField(auto_now=True)    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-scraped_at']
+        indexes = [
+            models.Index(
+                fields=['company','is_active']
+            ),
+        ]
 
     def __str__(self):
         return f"{self.title} at {self.company.name}"

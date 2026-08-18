@@ -22,3 +22,172 @@ Exception: Testing scraper failure
 2026-08-11 09:57:25,227 [INFO] scraper.orchestrator: Starting scraper for Visa
 2026-08-11 09:57:31,234 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
 2026-08-11 09:57:31,235 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 10:33:00,461 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 10:33:00,463 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 10:33:00,464 [ERROR] scraper.orchestrator: Failed to scrape Drivetrain
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 22, in run
+    scraper = ScraperFactory.get_scraper(company)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/factory.py", line 16, in get_scraper
+    return LeverScraper()
+           ^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/base.py", line 12, in __init__
+    retry_strategy = Retry(
+                     ^^^^^^
+TypeError: Retry.__init__() got an unexpected keyword argument 'allowed_method'
+2026-08-11 10:33:00,465 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 10:33:00,465 [ERROR] scraper.orchestrator: Failed to scrape Gitlab
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 22, in run
+    scraper = ScraperFactory.get_scraper(company)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/factory.py", line 13, in get_scraper
+    return GreenhouseScraper()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/base.py", line 12, in __init__
+    retry_strategy = Retry(
+                     ^^^^^^
+TypeError: Retry.__init__() got an unexpected keyword argument 'allowed_method'
+2026-08-11 10:33:00,465 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 10:33:00,465 [ERROR] scraper.orchestrator: Failed to scrape NVIDIA
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 22, in run
+    scraper = ScraperFactory.get_scraper(company)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/factory.py", line 19, in get_scraper
+    return WorkdayScraper()
+           ^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/base.py", line 12, in __init__
+    retry_strategy = Retry(
+                     ^^^^^^
+TypeError: Retry.__init__() got an unexpected keyword argument 'allowed_method'
+2026-08-11 10:33:00,466 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 10:33:00,466 [ERROR] scraper.orchestrator: Failed to scrape Visa
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 22, in run
+    scraper = ScraperFactory.get_scraper(company)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/factory.py", line 22, in get_scraper
+    return SmartRecruitersScraper()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/base.py", line 12, in __init__
+    retry_strategy = Retry(
+                     ^^^^^^
+TypeError: Retry.__init__() got an unexpected keyword argument 'allowed_method'
+2026-08-11 10:33:00,466 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 10:34:07,312 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 10:34:07,313 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 10:34:10,488 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 10:34:10,488 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 10:34:13,605 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 10:34:13,605 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 10:34:15,897 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 10:34:15,898 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 10:34:17,009 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 10:34:17,010 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 10:47:05,054 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 10:47:05,055 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 10:47:11,632 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 10:47:11,632 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 10:47:14,433 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 10:47:14,433 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 10:47:16,887 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 10:47:16,888 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 10:47:16,890 [ERROR] scraper.orchestrator: Failed to scrape Visa
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 23, in run
+    jobs = scraper.scrape(company)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/scrapers/smart_recruiters.py", line 33, in scrape
+    data = self.getjson(
+           ^^^^^^^^^^^^
+AttributeError: 'SmartRecruitersScraper' object has no attribute 'getjson'. Did you mean: 'get_json'?
+2026-08-11 10:47:16,891 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 10:48:19,384 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 10:48:19,387 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 10:48:24,774 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 10:48:24,774 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 10:48:28,709 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 10:48:28,710 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 10:48:30,898 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 10:48:30,898 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 10:48:30,900 [ERROR] scraper.orchestrator: Failed to scrape Visa
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 23, in run
+    jobs = scraper.scrape(company)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/scrapers/smart_recruiters.py", line 33, in scrape
+    data = self.getj_son(
+           ^^^^^^^^^^^^^
+AttributeError: 'SmartRecruitersScraper' object has no attribute 'getj_son'. Did you mean: 'get_json'?
+2026-08-11 10:48:30,901 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 10:48:58,489 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 10:48:58,491 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 10:49:12,114 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 10:49:12,115 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 10:49:19,890 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 10:49:19,891 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 10:49:22,003 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 10:49:22,003 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 10:49:28,195 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 10:49:28,195 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 11:00:23,034 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 11:00:23,035 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 11:00:27,025 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 11:00:27,026 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 11:00:36,185 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 11:00:36,185 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 11:00:38,447 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 11:00:38,448 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 11:00:38,785 [INFO] scraper.scrapers.smart_recruiters: Fetched 2 jobs from SmartRecruiters for Visa
+2026-08-11 11:00:40,008 [INFO] scraper.scrapers.smart_recruiters: Made 2 details API requests for 2 jobs
+2026-08-11 11:00:40,040 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 11:00:40,040 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 13:00:13,893 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 13:00:13,898 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 13:00:18,053 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 13:00:18,054 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 13:00:26,886 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 13:00:26,887 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 13:00:29,314 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 13:00:29,315 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 13:00:29,718 [INFO] scraper.scrapers.smart_recruiters: Fetched 2 jobs from SmartRecruiters for Visa
+2026-08-11 13:00:29,719 [ERROR] scraper.orchestrator: Failed to scrape Visa
+Traceback (most recent call last):
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/orchestrator.py", line 23, in run
+    jobs = scraper.scrape(company)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evara/Programming_File/All_Programming/Project/job_alert_system/scraper/scrapers/smart_recruiters.py", line 83, in scrape
+    results = executor.map(
+              ^^^^^^^^^^^^
+AttributeError: module 'django.db.migrations.executor' has no attribute 'map'
+2026-08-11 13:00:29,724 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-11 13:12:24,459 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-11 13:12:24,461 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-11 13:12:38,590 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-11 13:12:38,591 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-11 13:12:43,224 [INFO] scraper.orchestrator: Successfully scraped 190 jobs from Gitlab
+2026-08-11 13:12:43,225 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-11 13:12:50,739 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-11 13:12:50,740 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-11 13:12:56,178 [INFO] scraper.scrapers.smart_recruiters: Fetched 2 jobs from SmartRecruiters for Visa
+2026-08-11 13:12:56,662 [INFO] scraper.scrapers.smart_recruiters: Fetched details for 2 out of 2 jobs
+2026-08-11 13:12:56,706 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-11 13:12:56,707 [INFO] scraper.orchestrator: Job scraping completed
+2026-08-13 08:17:50,961 [INFO] scraper.orchestrator: Starting job scraping for 4 companies
+2026-08-13 08:17:50,963 [INFO] scraper.orchestrator: Starting scraper for Drivetrain
+2026-08-13 08:17:54,526 [INFO] scraper.orchestrator: Deactivated 0 missing jobs for Drivetrain
+2026-08-13 08:17:54,527 [INFO] scraper.orchestrator: Successfully scraped 35 jobs from Drivetrain
+2026-08-13 08:17:54,527 [INFO] scraper.orchestrator: Starting scraper for Gitlab
+2026-08-13 08:17:57,753 [INFO] scraper.orchestrator: Deactivated 62 missing jobs for Gitlab
+2026-08-13 08:17:57,753 [INFO] scraper.orchestrator: Successfully scraped 196 jobs from Gitlab
+2026-08-13 08:17:57,753 [INFO] scraper.orchestrator: Starting scraper for NVIDIA
+2026-08-13 08:17:59,902 [INFO] scraper.orchestrator: Deactivated 90 missing jobs for NVIDIA
+2026-08-13 08:17:59,902 [INFO] scraper.orchestrator: Successfully scraped 20 jobs from NVIDIA
+2026-08-13 08:17:59,902 [INFO] scraper.orchestrator: Starting scraper for Visa
+2026-08-13 08:18:01,010 [INFO] scraper.scrapers.smart_recruiters: Fetched 2 jobs from SmartRecruiters for Visa
+2026-08-13 08:18:01,349 [INFO] scraper.scrapers.smart_recruiters: Fetched details for 2 out of 2 jobs
+2026-08-13 08:18:01,378 [INFO] scraper.orchestrator: Deactivated 0 missing jobs for Visa
+2026-08-13 08:18:01,378 [INFO] scraper.orchestrator: Successfully scraped 2 jobs from Visa
+2026-08-13 08:18:01,378 [INFO] scraper.orchestrator: Job scraping completed
