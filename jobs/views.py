@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from urllib3 import request
-
+from jobs.models import Job
 from jobs.services import JobService
 from jobs.serializers import JobSerializer
 from rest_framework.pagination import PageNumberPagination
@@ -35,3 +34,14 @@ def job_list(request):
 
     return paginator.get_paginated_response(serializer.data)
 
+@api_view(["GET"])
+def job_detail(request,job_id):
+
+    job = get_object_or_404(
+        Job,
+        id=job_id,
+        is_active=True
+    )
+    serializer = JobSerializer(job)
+
+    return Response(serializer.data)

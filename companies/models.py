@@ -6,7 +6,6 @@ class Company(models.Model):
         ("greenhouse","Greenhouse"),
         ("lever","Lever"),
         ("workday","Workday"),
-        ("ashby","Ashby"),
         ("smartrecruiters","SmartRecruiters"),
         ("taleo","Taleo"),
 
@@ -40,7 +39,6 @@ class Company(models.Model):
     platform = models.CharField(
         max_length = 20,
         choices = PLATFORM_CHOICES,
-        default = "custom",
         verbose_name = "Career Platform"
     )
 
