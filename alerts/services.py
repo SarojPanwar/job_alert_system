@@ -29,3 +29,43 @@ class AlertService:
             return True
 
         return alert.location.lower() in job.location.lower()
+    
+    @staticmethod
+    def work_mode_matches(alert,job):
+        if not alert.work_mode:
+            return True
+        
+        if not job.work_mode:
+            return False
+        return alert.work_mode.lower() in job.work_mode.lower()
+
+    @staticmethod
+    def employment_type_matches(alert,job):
+        if not alert.employment_type:
+            return True
+
+        if not job.employment_type:
+            return False
+        return (
+            alert.employment_type.lower() in job.employment_type.lower()
+        )
+    @staticmethod
+    def matches_alert(alert,job):
+
+            return (
+                AlertService.keyword_matches(alert,job)
+                and AlertService.location_matches(alert,job)
+                and AlertService.work_mode_matches(alert,job)
+                and AlertService.employment_type_matches(alert,job)
+    )
+
+    @staticmethod
+    def get_matching_jobs(alert):
+        jobs = Job.objects.filter(is_active=True)
+
+        matching_jobs = []
+        for job in jobs:
+            if AlertService.matches_alert(alert,job):
+                matching_jobs.append(job)
+
+        return matching_jobs

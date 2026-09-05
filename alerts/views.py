@@ -4,7 +4,8 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from alerts.models import JobAlert
 from alerts.serializers import JobAlertSerializer
-
+from alerts.services import AlertService
+from jobs.serializers import JobSerializer
 # Create your views here.
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
@@ -44,3 +45,17 @@ def alert_list(request):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def alert_matching_jobs(request,alert_id):
+    alert = JobAlert.objects.get(
+        id=alert_id,
+        user=request.user
+
+    )
+    jobs = AlertService.get_matching_jobs(alert)
+    serializer = JobSerializer(
+        jobs,
+        many=True
+    )
+    return Response(serializer.data)
