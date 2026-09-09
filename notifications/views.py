@@ -14,6 +14,12 @@ def notification_list(request):
     notifications =Notification.objects.filter(
         user = request.user
     )
+    if not notifications.exists():
+        return Response(
+            {
+                "message":"There are no notifications for this user."
+            }
+        )
     serializer = NotificationSerializer(
         notifications,
         many=True

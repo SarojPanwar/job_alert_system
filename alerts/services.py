@@ -1,4 +1,7 @@
+
 from jobs.models import Job
+from alerts.models import JobAlert
+from notifications.models import Notification
 
 class AlertService:
 
@@ -69,3 +72,16 @@ class AlertService:
                 matching_jobs.append(job)
 
         return matching_jobs
+
+    @staticmethod
+    def create_notifications_for_job(job):
+        alerts = JobAlert.object.filter(
+            is_active= True
+        )
+        for alert in alerts:
+            if AlertService.matches_alert(alert,job):
+                Notification.objects.create(
+                    user = alert.user,
+                    job = job,
+                    message=f"New job matching your alert:{job.title}"
+                )

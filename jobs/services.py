@@ -1,8 +1,7 @@
 import hashlib
-
 from django.db.models import Q
-
 from jobs.models import Job
+from alerts.services import AlertService
 
 class JobService:
     @staticmethod
@@ -18,7 +17,7 @@ class JobService:
             job_hash = hashlib.sha256(hash_input.encode()).hexdigest()
             scraped_hashes.add(job_hash)
 
-            Job.objects.update_or_create(
+            job_obj, created = Job.objects.update_or_create(
                 job_hash = job_hash,
         
                 defaults = {
@@ -31,12 +30,14 @@ class JobService:
                     "department": job.get("department",""),
                     "office": job.get("office",""),
                     "experience": job.get("experience",""),
-                    "employment_type":job.get("employement_type",""),
+                    "employment_type":job.get("employment_type",""),
                     "work_mode":job.get("work_mode",""),
                     "skills":job.get("skills",""),
 
                 },
             )
+            if created:
+                AlertService.create_notifications_for_job(job_obj)
         return scraped_hashes
     
     @staticmethod
@@ -50,6 +51,7 @@ class JobService:
         ).update(
             is_active = False
         )
+    
     
     @staticmethod
     def search_jobs(
