@@ -2,7 +2,7 @@
 from jobs.models import Job
 from alerts.models import JobAlert
 from notifications.models import Notification
-
+from django.core.mail import send_mail
 class AlertService:
 
     @staticmethod
@@ -75,7 +75,7 @@ class AlertService:
 
     @staticmethod
     def create_notifications_for_job(job):
-        alerts = JobAlert.object.filter(
+        alerts = JobAlert.objects.filter(
             is_active= True
         )
         for alert in alerts:
@@ -85,3 +85,14 @@ class AlertService:
                     job = job,
                     message=f"New job matching your alert:{job.title}"
                 )
+                send_mail(
+                    subject=f"New job matching your alert:{job.title}",
+                    message=(
+                        f"Job Title:{job.title}\n"
+                        f"Location:{job.location}\n"
+                        f"Apply here:{job.apply_url}"
+                    ),
+                    from_email="noreply@jobalert.com",
+                    recipient_list=[alert.user.email],
+                )
+    
