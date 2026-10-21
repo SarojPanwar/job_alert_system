@@ -45,6 +45,8 @@ class SmartRecruitersScraper(BaseScraper):
             f"https://api.smartrecruiters.com/v1/companies/"
             f"{company_identifier}/postings"
         )
+        print("Visa career URL:", company.career_url)
+        print("SmartRecruiters API URL:", api_url)  
         
         # Pagination starts here
         offset = 0

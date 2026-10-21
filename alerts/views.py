@@ -45,6 +45,7 @@ def alert_list(request):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+    
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def alert_matching_jobs(request,alert_id):
@@ -59,3 +60,28 @@ def alert_matching_jobs(request,alert_id):
         many=True
     )
     return Response(serializer.data)
+
+
+@api_view(["DELETE"])
+@permission_classes([IsAuthenticated])
+def delete_alert(request,alert_id):
+    try:
+        alert = JobAlert.objects.get(
+            id=alert_id,
+            user=request.user
+        )
+        alert.delete()
+        return Response(
+            {
+                "message":"Alert deleted successfully."
+
+            },
+            status=status.HTTP_200_OK
+        )
+    except JobAlert.DoesNotExist:
+        return Response(
+            {
+                "error":"Alert not found."
+            },
+            status=status.HTTP_404_NOT_FOUND
+        )

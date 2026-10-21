@@ -21,7 +21,13 @@ class ScraperOrchestrator:
                 
                 scraper = ScraperFactory.get_scraper(company)
                 jobs = scraper.scrape(company)
-
+                if not jobs:
+                    logger.warning(
+                        "No jobs returned for %s.skipping deactivation.",
+                        company.name
+                    )
+                    continue
+                
                 scraped_hashes = JobService.save_jobs(
                     company,
                     jobs

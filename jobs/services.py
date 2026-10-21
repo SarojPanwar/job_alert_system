@@ -33,6 +33,7 @@ class JobService:
                     "employment_type":job.get("employment_type",""),
                     "work_mode":job.get("work_mode",""),
                     "skills":job.get("skills",""),
+                    "is_active": True,
 
                 },
             )

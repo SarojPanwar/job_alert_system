@@ -19,11 +19,17 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")== "True"
 
-DEBUG = True
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    if host.strip()
+]
 
-ALLOWED_HOSTS = []
-
-
+CSRF_TRUSTED_ORIGINS = [
+    f"https://{host}"
+    for host in ALLOWED_HOSTS
+    if host.endswith(".onrender.com")
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,7 +130,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False,
+
+#     "formatters": {
+#         "standard": {
+#             "format": "{asctime} [{levelname}] {name}: {message}",
+#             "style": "{",
+#         },
+#     },
+
+#     "handlers": {
+#         "console": {
+#             "class": "logging.StreamHandler",
+#         }
+#         }
+# }
 
 LOGGING = {
     "version": 1,
@@ -139,9 +165,19 @@ LOGGING = {
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-        }
-        }
+            "formatter": "standard",
+        },
+    },
+
+    "loggers": {
+        "scraper": {
+            "handlers": ["console"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
 }
+
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_USE_TLS=True
@@ -150,3 +186,16 @@ EMAIL_HOST_USER=os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD=os.getenv("EMAIL_HOST_PASSWORD")
 
 DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    "DEFAULT_PAGINATION_CLASS": (
+        "rest_framework.pagination.PageNumberPagination"
+    ),
+    "PAGE_SIZE": 20,
+}
