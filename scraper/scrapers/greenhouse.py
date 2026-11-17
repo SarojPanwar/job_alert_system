@@ -11,7 +11,7 @@ class GreenhouseScraper(BaseScraper):
         api_url = (
             f"https://boards-api.greenhouse.io/v1/boards/"f"{board_token}/jobs?content=true"
         )
-        
+       
         data = self.get_json(api_url)
         jobs = []
         
